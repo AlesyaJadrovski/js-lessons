@@ -1,13 +1,18 @@
 'use strict';
 
 var todoListElement = document.getElementById('todo-list');
-var buttonAddElement = document.getElementById('btn-add');
+var formElement = document.getElementById('todo-controls-form');
 var inputTodoElement = document.getElementById('todo-input');
 var addTodoHandler = function(event) {
-  if(event.type == 'keyup' && event.keyCode != 13) {
+  event.preventDefault();
+  if(inputTodoElement.value.trim() == '') {
+    inputTodoElement.value = '';
     return;
   }
-  // todo work
+  var newListItem = document.createElement('li');
+  var newTodoText = document.createTextNode(inputTodoElement.value);
+  newListItem.appendChild(newTodoText);
+  todoListElement.appendChild(newListItem);
+  inputTodoElement.value = '';
 };
-buttonAddElement.onclick = addTodoHandler;
-inputTodoElement.onkeyup = addTodoHandler;
+formElement.onsubmit = addTodoHandler;

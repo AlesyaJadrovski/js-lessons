@@ -1,0 +1,17 @@
+#btn1{
+    background: limegreen;
+    color: black;
+}
+
+#btn2{
+    background: red;
+    color: black;
+}
+
+#todo-list li.checked {
+    background-color: limegreen;
+}
+
+#todo-list li.cancel {
+    background-color: white;
+}

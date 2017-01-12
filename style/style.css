@@ -1,17 +1,17 @@
-#btn1{
+#btn-done{
     background: limegreen;
     color: black;
 }
 
-#btn2{
+#btn-delete{
     background: red;
     color: black;
 }
 
-#todo-list li.checked {
+#todo-list li.state-done {
     background-color: limegreen;
 }
 
-#todo-list li.cancel {
+#todo-list li.state-cancel {
     background-color: white;
 }

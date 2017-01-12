@@ -13,37 +13,35 @@ $(document).ready(function() {
       return;
     }
 
-    var newListItem = '<li><label><input id=check1 type="checkbox" name="cb1">' + inputTodoElement.val() + '</label></li>';
-
-    $('#btn1').on('click', function() {
-      todoListElement.find('li input[type="checkbox"]').each(function() {
-        var checkbox = $(this),
-          li = checkbox.closest('li')
-        ;
-
-        if (checkbox.is(':checked')) {
-          li.addClass('checked');
-        }
-      });
-    });
-
-    $('#btn3').on('click', function() {
-      todoListElement.find('li input[type="checkbox"]').each(function() {
-        var checkbox = $(this),
-            li = checkbox.closest('li')
-            ;
-
-        if (checkbox.is(':checked')) {
-          li.addClass('cancel');
-        }
-      });
-    });
-
-    
+    var newListItem = '<li><label><input type="checkbox" name="cb1">' + inputTodoElement.val() + '</label></li>';
 
     todoListElement.append(newListItem);
     inputTodoElement.val('');
   };
+
+  $('#btn-done').on('click', function() {
+    todoListElement.find('li input[type="checkbox"]:checked').each(function() {
+      var checkbox = $(this),
+          li = checkbox.closest('li')
+          ;
+
+        li.addClass('state-done');
+        li.removeClass('state-cancel');
+        $("input[type=checkbox]").prop('checked', false);
+       console.log('test');
+    });
+  });
+
+  $('#btn-cancel').on('click', function() {
+    todoListElement.find('li input[type="checkbox"]:checked').each(function() {
+      var checkbox = $(this),
+          li = checkbox.closest('li')
+          ;
+
+        li.addClass('state-cancel');
+        li.removeClass('state-done');
+        $("input[type=checkbox]").prop('checked', false);    });
+  });
 
   formElement.submit(addTodoHandler);
 });

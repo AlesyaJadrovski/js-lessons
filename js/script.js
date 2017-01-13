@@ -43,6 +43,16 @@ $(document).ready(function() {
         $("input[type=checkbox]").prop('checked', false);    });
   });
 
+  $('#btn-delete').on('click', function() {
+    todoListElement.find('li input[type="checkbox"]:checked').each(function() {
+      var checkbox = $(this),
+          li = checkbox.closest('li')
+          ;
+      li.remove();
+
+    });
+  });
+
   formElement.submit(addTodoHandler);
 });
 

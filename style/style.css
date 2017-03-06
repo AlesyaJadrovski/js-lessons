@@ -1,0 +1,17 @@
+#btn-done{
+    background: limegreen;
+    color: black;
+}
+
+#btn-delete{
+    background: red;
+    color: black;
+}
+
+#todo-list li.state-done {
+    background-color: limegreen;
+}
+
+#todo-list li.state-cancel {
+    background-color: white;
+}
